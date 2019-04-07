@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "pixel-react": {
+      "tags": []
+    },
+    "pixel-react-e2e": {
+      "tags": []
+    }
+  }
 }

@@ -2,7 +2,116 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "pixel-react": {
+      "root": "apps/pixel-react/",
+      "sourceRoot": "apps/pixel-react/src",
+      "projectType": "application",
+      "prefix": "pxl",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@nrwl/builders:web-build",
+          "options": {
+            "outputPath": "dist/apps/pixel-react",
+            "index": "apps/pixel-react/src/index.html",
+            "main": "apps/pixel-react/src/main.tsx",
+            "polyfills": "apps/pixel-react/src/polyfills.ts",
+            "tsConfig": "apps/pixel-react/tsconfig.app.json",
+            "assets": [
+              "apps/pixel-react/src/favicon.ico",
+              "apps/pixel-react/src/assets"
+            ],
+            "styles": ["apps/pixel-react/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/pixel-react/src/environments/environment.ts",
+                  "with": "apps/pixel-react/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/builders:web-dev-server",
+          "options": {
+            "buildTarget": "pixel-react:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "pixel-react:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/pixel-react/tsconfig.app.json",
+              "apps/pixel-react/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/pixel-react/jest.config.js",
+            "tsConfig": "apps/pixel-react/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "pixel-react-e2e": {
+      "root": "apps/pixel-react-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/pixel-react-e2e/cypress.json",
+            "tsConfig": "apps/pixel-react-e2e/tsconfig.e2e.json",
+            "devServerTarget": "pixel-react:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pixel-react:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/pixel-react-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
@@ -17,5 +126,6 @@
     "@nrwl/schematics:library": {
       "style": "scss"
     }
-  }
+  },
+  "defaultProject": "pixel-react"
 }
