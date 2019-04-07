@@ -110,6 +110,124 @@
           }
         }
       }
+    },
+    "pixel-angst": {
+      "root": "apps/pixel-angst/",
+      "sourceRoot": "apps/pixel-angst/src",
+      "projectType": "application",
+      "prefix": "pxl",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/pixel-angst",
+            "index": "apps/pixel-angst/src/index.html",
+            "main": "apps/pixel-angst/src/main.ts",
+            "polyfills": "apps/pixel-angst/src/polyfills.ts",
+            "tsConfig": "apps/pixel-angst/tsconfig.app.json",
+            "assets": [
+              "apps/pixel-angst/src/favicon.ico",
+              "apps/pixel-angst/src/assets"
+            ],
+            "styles": ["apps/pixel-angst/src/styles.scss"],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/pixel-angst/src/environments/environment.ts",
+                  "with": "apps/pixel-angst/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "pixel-angst:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "pixel-angst:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pixel-angst:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/pixel-angst/tsconfig.app.json",
+              "apps/pixel-angst/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/pixel-angst/jest.config.js",
+            "tsConfig": "apps/pixel-angst/tsconfig.spec.json",
+            "setupFile": "apps/pixel-angst/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "pixel-angst-e2e": {
+      "root": "apps/pixel-angst-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/pixel-angst-e2e/cypress.json",
+            "tsConfig": "apps/pixel-angst-e2e/tsconfig.e2e.json",
+            "devServerTarget": "pixel-angst:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pixel-angst:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/pixel-angst-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "cli": {

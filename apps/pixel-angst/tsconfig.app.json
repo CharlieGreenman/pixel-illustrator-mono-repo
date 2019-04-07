@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/pixel-angst",
+    "types": []
+  },
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts"],
+  "include": ["**/*.ts"]
+}
