@@ -228,6 +228,36 @@
           }
         }
       }
+    },
+    "common-ui-grid": {
+      "root": "libs/common/ui/grid",
+      "sourceRoot": "libs/common/ui/grid/src",
+      "projectType": "library",
+      "prefix": "pxl",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/ui/grid/tsconfig.lib.json",
+              "libs/common/ui/grid/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/common/ui/grid/jest.config.js",
+            "tsConfig": "libs/common/ui/grid/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

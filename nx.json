@@ -19,6 +19,9 @@
     },
     "pixel-angst-e2e": {
       "tags": []
+    },
+    "common-ui-grid": {
+      "tags": []
     }
   }
 }
