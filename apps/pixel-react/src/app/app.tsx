@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
+import { PixelGridElement } from '@pxl/common/ui/grid';
 
 import './app.scss';
 
@@ -10,6 +11,7 @@ export class App extends Component {
       <div>
         <div style={{ textAlign: 'center' }}>
           <h1>Welcome to {title}!</h1>
+          <PixelGridElement/>
           <img
             width="450"
             src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
