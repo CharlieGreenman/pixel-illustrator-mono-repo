@@ -44,8 +44,8 @@
     "react-dom": "16.8.3"
   },
   "devDependencies": {
-    "ts-jest": "24.0.0",
     "jest-preset-angular": "7.0.0",
+    "ts-jest": "24.0.0",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "^7.0.0",
     "@angular-devkit/build-angular": "~0.13.0",

@@ -258,6 +258,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "pixel-angst-common-ui": {
+      "root": "libs/pixel-angst/common/ui",
+      "sourceRoot": "libs/pixel-angst/common/ui/src",
+      "projectType": "library",
+      "prefix": "pxl",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/pixel-angst/common/ui/tsconfig.lib.json",
+              "libs/pixel-angst/common/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/pixel-angst/common/ui/jest.config.js",
+            "tsConfig": "libs/pixel-angst/common/ui/tsconfig.spec.json",
+            "setupFile": "libs/pixel-angst/common/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

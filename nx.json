@@ -22,6 +22,9 @@
     },
     "common-ui-grid": {
       "tags": []
+    },
+    "pixel-angst-common-ui": {
+      "tags": []
     }
   }
 }

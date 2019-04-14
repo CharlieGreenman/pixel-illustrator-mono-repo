@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pxl/common/ui/grid": ["libs/common/ui/grid/src/index.ts"]
+      "@pxl/common/ui/grid": ["libs/common/ui/grid/src/index.ts"],
+      "@pxl/pixel-angst/common/ui": ["libs/pixel-angst/common/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
