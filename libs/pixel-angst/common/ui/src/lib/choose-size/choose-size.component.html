@@ -1,3 +1,27 @@
-<p>
-  choose-size works!
-</p>
+<form [formGroup]="form" (ngSubmit)="handleFormSubmit()">
+  <mat-form-field>
+    <input
+      matInput
+      formControlName="row"
+      placeholder="Row"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      formControlName="column"
+      placeholder="Column"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      formControlName="pixelSize"
+      placeholder="Pixel Size"
+    />
+  </mat-form-field>
+
+
+</form>
